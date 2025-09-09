@@ -1,0 +1,3 @@
+﻿  Assembling main.asm...
+main.obj : warning LNK4258: directive '/ENTRY:main@0' not compatible with switch '/ENTRY:main'; ignored
+  ReverseString.vcxproj -> C:\Users\octavio.ortiz\OneDrive - Imperial Valley College\CS 281\ClassScripts\CS281-Fall2025\Procedures\ReverseString\Debug\ReverseString.exe
