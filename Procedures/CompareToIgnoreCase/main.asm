@@ -31,6 +31,15 @@ ExitProcess proto, dwExitCode:dword
 		mov edx, edi				;get length of second string
 		call strLength
 
+		cmp ebx, eax				;compares length of two strings
+		jg pickSecondString
+		mov ecx, ebx				;places length of first string in loop-counter
+		jmp compareStrings
+
+		pickSecondString:
+			mov ecx, eax				;places length of second string in loop-counter
+
+		compareStrings:
 
 		
 		ret
