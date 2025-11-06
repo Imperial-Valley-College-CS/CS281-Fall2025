@@ -1,0 +1,3 @@
+C:\Users\octavio.ortiz\OneDrive - Imperial Valley College\CS 281\Programming Assignments\Ch9_StructuresAndMacros\Student\Debug\Student.exe
+C:\Users\octavio.ortiz\OneDrive - Imperial Valley College\CS 281\Programming Assignments\Ch10_StructuresAndMacros\Student\Debug\Student.exe
+C:\Users\octavio.ortiz\OneDrive - Imperial Valley College\CS 281\Programming Assignments\Ch10_StructuresAndMacros\Archive\Student\Debug\Student.exe
