@@ -1,7 +1,3 @@
-.386
-.model flat, stdcall
-.stack 4096
-
 ;MS-Windows Built-in Procedures
 ExitProcess proto, dwExitCode:dword
 GetStdHandle PROTO,         ; get standard handle
