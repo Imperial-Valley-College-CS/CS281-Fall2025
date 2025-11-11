@@ -3,4 +3,8 @@
   <ItemGroup>
     <MASM Include="main.asm" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="prototypes.inc" />
+    <None Include="constants.inc" />
+  </ItemGroup>
 </Project>
