@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8ebc7109-b96e-49ae-be1a-541003f2c6bb}</ProjectGuid>
-    <RootNamespace>WriteToConsole</RootNamespace>
+    <ProjectGuid>{bfa8b0ec-c912-4a41-9092-42d320d962d8}</ProjectGuid>
+    <RootNamespace>ReadWriteFromFile</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -130,11 +130,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <MASM Include="main.asm" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="constants.inc" />
-    <None Include="macros.inc" />
-    <None Include="prototypes.inc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

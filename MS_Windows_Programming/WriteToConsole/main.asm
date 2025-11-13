@@ -4,20 +4,13 @@
 
 include constants.inc
 include prototypes.inc
+include macros.inc
 
-;Macro definitions
-mWriteChar macro singleChar
-    push eax
-    mov eax, 0
-    mov al, singleChar
-    push eax
-    call WriteChar
-    pop eax
-endm
 
 .data
     crlf byte 0dh,0ah
-    phrase byte "Happy Thanksgiving",0
+    phrase byte "Happy Thanksgivings",0
+    charsWritten dword ?
 
 .code
 	main proc
@@ -28,39 +21,46 @@ endm
         push lengthof phrase
         call WriteString
 
-        ;push 20
-        ;call WriteInt
+        push 20
+        call WriteInt
 
 		INVOKE ExitProcess, 0
 	main endp
 
     WriteChar proc
-        .data
-        charsWritten dword ?
 
         .code
         push ebp
         mov ebp, esp
+
+        push eax
+        push ecx
+        push edx
+
         add ebp, 8
         invoke GetStdHandle, STD_OUT_HANDLE                ;handle returned in EAX
-        invoke WriteConsole, EAX, EBP, 1, offset charsWritten, 0
+        invoke WriteConsole, eax, ebp, 1, offset charsWritten, 0
 
+        pop edx
+        pop ecx
+        pop eax
         pop ebp
         ret 4
     WriteChar endp
 
     WriteString proc
-        .data
-        charsWrittens dword ?
 
         .code
         push ebp
         mov ebp, esp
-        mov ebx, [ebp+8]            ;length of string
+
+        push ecx
+        mov ecx, [ebp+8]            ;length of string
         add ebp, 12
         invoke GetStdHandle, STD_OUT_HANDLE                ;handle returned in EAX
-        invoke WriteConsole, EAX, [EBP], EBX, offset charsWrittens, 0
+        invoke WriteConsole, eax, [ebp], ecx, offset charsWritten, 0
 
+        pop ecx
         pop ebp
         ret 8
     WriteString endp
