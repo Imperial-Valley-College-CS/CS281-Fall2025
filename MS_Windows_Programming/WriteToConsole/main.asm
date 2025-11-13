@@ -24,12 +24,12 @@ endm
 		
         mWriteChar 'A'
 
-        ;push offset phrase
-        ;push lengthof phrase
-        ;call WriteString
+        push offset phrase
+        push lengthof phrase
+        call WriteString
 
-        push 20
-        call WriteInt
+        ;push 20
+        ;call WriteInt
 
 		INVOKE ExitProcess, 0
 	main endp
@@ -56,10 +56,10 @@ endm
         .code
         push ebp
         mov ebp, esp
-        mov ebx, [ebp+8]
+        mov ebx, [ebp+8]            ;length of string
         add ebp, 12
         invoke GetStdHandle, STD_OUT_HANDLE                ;handle returned in EAX
-        invoke WriteConsole, EAX, EBP, EBX, offset charsWrittens, 0
+        invoke WriteConsole, EAX, [EBP], EBX, offset charsWrittens, 0
 
         pop ebp
         ret 8

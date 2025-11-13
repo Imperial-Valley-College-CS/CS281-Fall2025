@@ -1,4 +1,12 @@
 ;MS-Windows Built-in Procedures
+CreateFile PROTO,           ; create new file
+    pFilename:PTR BYTE,     ; ptr to filename
+    accessMode:DWORD,       ; access mode
+    shareMode:DWORD,        ; share mode
+    lpSecurity:DWORD,       ; can be NULL
+    howToCreate:DWORD,      ; how to create the file
+    attributes:DWORD,       ; file attributes
+    htemplate:DWORD         ; handle to template file
 ExitProcess proto, dwExitCode:dword
 GetStdHandle PROTO,         ; get standard handle
     nStdHandle:DWORD        ; type of console handle
