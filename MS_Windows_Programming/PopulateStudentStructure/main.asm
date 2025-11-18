@@ -21,7 +21,13 @@ include structures.inc
 
         push offset roster
         push offset buffer
-        call PopulateStudentString
+        call PopulateStudentString          ;populates name of student in Roster
+
+        inc edi                                         ;edi past comma to move to gender
+        add esi, size Student.stuName   ;points to gender data field in roster (adds 20 bytes)
+        push esi
+        push edi
+        call PopulateStudentString          ;populates gender of student in Roster
 
 		INVOKE ExitProcess, 0
 	main endp
@@ -32,6 +38,7 @@ include structures.inc
         mov ebp, esp
         mov esi, [ebp+12]           ;offset that points to roster
         mov edi, [ebp+8]            ;offset that points to buffer
+        push esi                    
 
         L1:
             cmp byte ptr [edi], 2ch     ;compare to comma
@@ -47,6 +54,7 @@ include structures.inc
             jmp L1
 
         doneTraversing:
+            pop esi
             pop ebp
         ret 8
     PopulateStudentString endp
