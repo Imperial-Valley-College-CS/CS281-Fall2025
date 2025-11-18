@@ -19,10 +19,37 @@ include structures.inc
         push offset buffer
         call ReadFromFile
 
-        mov esi, offset roster
+        push offset roster
+        push offset buffer
+        call PopulateStudentString
 
 		INVOKE ExitProcess, 0
 	main endp
+
+    PopulateStudentString proc
+        
+        push ebp
+        mov ebp, esp
+        mov esi, [ebp+12]           ;offset that points to roster
+        mov edi, [ebp+8]            ;offset that points to buffer
+
+        L1:
+            cmp byte ptr [edi], 2ch     ;compare to comma
+            je doneTraversing 
+            cmp byte ptr [edi], 0dh     ;compare to carriage return (reached end of line)
+            je doneTraversing
+            cmp byte ptr [edi], 0         ;compare to null (end of file)
+            je doneTraversing
+            mov al, [edi]                       ;copies byte from buffer to register
+            mov [esi], al                       ;copies byte from register to roster
+            inc esi
+            inc edi
+            jmp L1
+
+        doneTraversing:
+            pop ebp
+        ret 8
+    PopulateStudentString endp
 
 	ReadFromFile proc
 

@@ -5,4 +5,4 @@ Student struct
 	id byte 10 dup(0)
 	email byte 35 dup(0)
 	key byte 3 dup(?)
-Student ends
+Student ends			;type Student = 79
